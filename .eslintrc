@@ -5,6 +5,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "react/destructuring-assignment": 0,
     "import/newline-after-import": 0,
     "sort-imports": 0,
     "import/order": 0,

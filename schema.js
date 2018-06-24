@@ -2,6 +2,8 @@ import { merge } from 'lodash';
 import { makeExecutableSchema } from 'graphql-tools';
 import authSchena from './graphql/auth/schema';
 import authResolvers from './graphql/auth/resolvers';
+import commonSchema from './graphql/common/schema';
+import commonResolvers from './graphql/common/resolvers';
 
 const rootSchema = [`
 type Query {
@@ -20,8 +22,8 @@ schema {
 }
 `];
 
-const schema = [...rootSchema, ...authSchena];
-const resolvers = merge(authResolvers);
+const schema = [...rootSchema, ...authSchena, ...commonSchema];
+const resolvers = merge(authResolvers, commonResolvers);
 
 const executableSchema = makeExecutableSchema({
   typeDefs: schema,
